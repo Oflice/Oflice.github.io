@@ -34,6 +34,21 @@
 <script>
         document.getElementById("XoDownload").addEventListener("click", function() {
             alert("абаюнда");
+                    const message = "Player has clicked the button!";
+        const webhookUrl = "YOUR_DISCORD_WEBHOOK_URL";  // Put your Discord Webhook URL here
+
+        fetch(webhookUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                content: message // The message you want to send
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log("Message sent: ", data))
+        .catch(error => console.error("Error sending message:", error));
         });
 </script>
 </html>
